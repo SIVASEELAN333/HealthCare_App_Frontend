@@ -166,7 +166,8 @@ const DoctorList = () => {
       ) : (
         <div className="doctor-cards">
           {filteredDoctors.map(doc => (
-            <div key={doc.licenseNumber} className="doctor-card">
+            <div key={doc.licenseNumber} className={`doctor-card ${doc.isTrending ? 'top-doctor-card' : ''}`}>
+
               <div className="tag-container">
                 <FaTags
                   className="heart-icon"
