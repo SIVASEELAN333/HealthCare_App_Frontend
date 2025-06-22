@@ -1,0 +1,263 @@
+/* Container */
+.view-reports-container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.view-reports-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Report Cards */
+.report-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.report-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.report-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.report-card a {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.report-card a:hover {
+  color: #0056b3;
+}
+
+/* Report Card Button */
+.report-card button {
+  margin-top: 14px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #2196f3, #0d47a1);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(33, 150, 243, 0.2);
+}
+
+.report-card button:hover {
+  background: linear-gradient(135deg, #1e88e5, #0c4081);
+  box-shadow: 0 6px 18px rgba(33, 150, 243, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Opinion Form */
+.opinion-form {
+  margin-top: 48px;
+  padding: 28px;
+  background-color: #f5f7fa;
+  border-radius: 14px;
+  border: 1px solid #d0d7de;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.opinion-form h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #2f3c4d;
+}
+
+.opinion-form input,
+.opinion-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opinion-form input:focus,
+.opinion-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Button Group */
+.opinion-form .form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Send Button */
+.send-button {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(40, 167, 69, 0.2);
+}
+
+.send-button:hover {
+  background: linear-gradient(135deg, #218838, #166c2b);
+  box-shadow: 0 6px 18px rgba(40, 167, 69, 0.3);
+  transform: translateY(-1px);
+}
+
+.send-button:disabled {
+  background: #adb5bd;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+/* Cancel Button */
+.cancel-button {
+  background: linear-gradient(135deg, #dc3545, #a71d2a);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(220, 53, 69, 0.2);
+}
+
+.cancel-button:hover {
+  background: linear-gradient(135deg, #a71d2a, #821321);
+  box-shadow: 0 6px 18px rgba(220, 53, 69, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Messages */
+.success-message {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.give-opinion-button{
+    margin-left: 20px;
+}
+
+.leaderboard-toggle {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.toggle-leaderboard-btn {
+  background: linear-gradient(135deg, #6f42c1, #5a189a);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.2);
+}
+
+.toggle-leaderboard-btn:hover {
+  background: linear-gradient(135deg, #5a189a, #3c096c);
+  box-shadow: 0 6px 18px rgba(111, 66, 193, 0.3);
+  transform: translateY(-1px);
+}
+
+.leaderboard-card {
+  margin-top: 20px;
+  background: #f8f9fc;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  animation: slideDown 0.4s ease;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.leaderboard-card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 16px;
+}
+
+.rank-badge {
+  font-size: 22px;
+  margin-right: 12px;
+  width: 32px;
+  text-align: center;
+}
+
+.doctor-info {
+  flex-grow: 1;
+  color: #333;
+}

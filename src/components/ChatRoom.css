@@ -1,0 +1,628 @@
+.chatroom-page {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+}
+
+.back-btn {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #00b894;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.back-btn:hover {
+  background-color: #019875;
+}
+
+.chat-area {
+  flex: 1;
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 60vh;
+  scroll-behavior: smooth;
+}
+
+/* Modern chat bubble */
+.chat-msg {
+  padding: 12px 15px;
+  border-radius: 16px;
+  max-width: 75%;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
+
+/* Left (others) */
+.chat-msg.other {
+  align-self: flex-start;
+  background-color: #f1f3f6;
+  border-left: 4px solid #3498db;
+}
+
+/* Right (self) */
+.chat-msg.self {
+  align-self: flex-end;
+  background-color: #d1f8e8;
+  border-right: 4px solid #27ae60;
+}
+
+/* Meta info */
+.chat-msg .meta {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-avatar {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.chat-msg p {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 15px;
+}
+
+/* Smooth animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.send-area {
+  background: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;            /* NEW: ensure full width */
+  box-sizing: border-box; /* NEW: include padding in width */
+}
+
+
+.send-area textarea {
+  resize: none;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  width: 100%;            /* Already set */
+  box-sizing: border-box; /* NEW: ensures padding doesn't overflow */
+  overflow: auto;
+}
+
+.send-area textarea:focus {
+  border-color: #00b894;
+  box-shadow: 0 0 0 2px rgba(0, 184, 148, 0.2);
+  outline: none;
+}
+
+.send-area button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #00b894, #0984e3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.send-area button:hover {
+  background: linear-gradient(to right, #0984e3, #00b894);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .chatroom-page {
+    padding: 15px;
+  }
+  .chat-area {
+    max-height: 50vh;
+  }
+}
+/* Name prompt */
+.name-entry-page {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background: #f1f2f6;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.name-entry-page input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+.name-entry-page input:focus {
+  border-color: #0984e3;
+  outline: none;
+}
+
+.name-entry-page button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.name-entry-page button:hover {
+  background-color: #0652dd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .chatroom-page {
+    padding: 12px;
+  }
+  .chat-area {
+    height: 300px;
+  }
+  .name-entry-page {
+    margin-top: 60px;
+    padding: 15px;
+  }
+}
+
+.reply-box {
+  background-color: #f0f4f8;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-left: 3px solid #0984e3;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.reply-preview {
+  background: #e0f7fa;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-left: 4px solid #00b894;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.reply-preview button {
+  background: none;
+  border: none;
+  color: #d63031;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Reply icon */
+.reply-btn {
+  background: none;
+  border: none;
+  color: #0984e3;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.reply-btn:hover {
+  color: #0652dd;
+}
+
+/* Bounce animation */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.bounce-in {
+  animation: bounceIn 0.4s ease-out;
+}
+
+/* Timestamp style under messages */
+.timestamp {
+  font-size: 11px;
+  color: #888;
+  margin-top: 6px;
+  text-align: right;
+}
+
+
+.like-section {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  gap: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+.like-btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  color: #999;
+}
+
+.like-btn:hover {
+  background-color: rgba(230, 230, 230, 0.4);
+  transform: scale(1.08);
+}
+
+.like-btn.liked {
+  color: #e0245e;
+  font-weight: 600;
+  animation: heart-pop 0.3s ease;
+}
+
+.like-btn .heart {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.like-btn.liked .heart {
+  color: #e0245e;
+  transform: scale(1.3);
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(0.85);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.scroll-bottom-btn {
+  position: fixed; /* changed from sticky */
+  bottom: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 100;
+}
+
+.scroll-bottom-btn:hover {
+  background-color: #0652dd;
+}
+
+/* Poll Box inside chat message */
+/* 🌐 Poll Container */
+.poll-box {
+  margin-top: 14px;
+  padding: 18px 20px;
+  background: #ffffff;
+  border: 2px solid #dfe6e9;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 🧾 Poll Question */
+.poll-box strong {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 17px;
+  color: #0984e3;
+  font-weight: 600;
+}
+
+/* 📊 Poll Option */
+.poll-box div {
+  margin-top: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #ecf0f1;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  font-size: 15px;
+  color: #2d3436;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hover Animation */
+.poll-box div:hover {
+  background-color: #d0e6f7;
+  transform: translateX(3px);
+}
+
+/* 🎯 Vote Result Bar */
+.poll-box div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #00cec9, #74b9ff);
+  opacity: 0.4;
+  z-index: 0;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+/* ✅ JS will dynamically apply style="width: XX%" directly */
+
+/* 🧠 Content Layer */
+.poll-box div span {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 🎉 Voted Option Highlight */
+.poll-box .voted {
+  background-color: #d1f8e8 !important;
+  border: 2px solid #00b894;
+  color: #2d3436;
+  font-weight: 600;
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 184, 148, 0.25);
+}
+
+/* 📋 Poll Modal */
+.poll-modal {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 2px solid #00cec9;
+  border-radius: 14px;
+  padding: 30px 24px;
+  width: 90%;
+  max-width: 460px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 999;
+  animation: bounceIn 0.35s ease-out;
+}
+
+/* Modal Heading */
+.poll-modal h3 {
+  margin-bottom: 22px;
+  color: #0984e3;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Modal Input */
+.poll-modal input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.poll-modal input[type="text"]:focus {
+  border-color: #00b894;
+  outline: none;
+}
+
+/* 🛠 Modal Buttons */
+.poll-modal button {
+  padding: 10px 18px;
+  margin: 8px 6px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Add Option Button */
+.poll-modal button:nth-of-type(1) {
+  background-color: #ffeaa7;
+  color: #2d3436;
+}
+.poll-modal button:nth-of-type(1):hover {
+  background-color: #fdcb6e;
+}
+
+/* Send Poll Button */
+.poll-modal button:nth-of-type(2) {
+  background: linear-gradient(to right, #00b894, #0984e3);
+  color: white;
+}
+.poll-modal button:nth-of-type(2):hover {
+  background: linear-gradient(to right, #0984e3, #00b894);
+}
+
+/* Cancel Button */
+.poll-modal button:nth-of-type(3) {
+  background-color: #d63031;
+  color: white;
+}
+.poll-modal button:nth-of-type(3):hover {
+  background-color: #c0392b;
+}
+
+/* 🧽 Delete option icon */
+.poll-modal .remove-option-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #d63031;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: color 0.2s ease;
+}
+.poll-modal .remove-option-btn:hover {
+  color: #e74c3c;
+}
+
+/* 🌈 Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🎈 Bounce In */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8) translateX(-50%);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) translateX(-50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+.cp{
+  margin-right: 10px;
+}
+
+.msg-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+.private-tag {
+  background: #ffeaa7;
+  color: #2d3436;
+  font-size: 12px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 5px;
+}
+
+.epr-category-nav {
+  display: none !important;
+}
+
+/* Remove the preview area (usually on the right side) */
+.epr-preview {
+  display: none !important;
+}
+
+/* Remove the emoji hover pop-up preview that appears while typing */
+.epr-skin-tones {
+  display: none !important;
+}
+
+/* Remove the search dropdown results box */
+.epr-search {
+  display: none !important;
+}
+
+/* Remove padding/margins around the emoji picker body */
+.epr-body {
+  padding-top: 0 !important;
+  margin: 0 !important;
+}
+
+

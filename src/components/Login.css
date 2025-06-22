@@ -1,0 +1,111 @@
+/* Login.css */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #e0f7fa, #80deea);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+}
+
+.login-form {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #004d40;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.login-input {
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 1.2rem;
+  border: none;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-input:focus {
+  background-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.3);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px 0; /* Reduced height */
+  background: linear-gradient(to right, #00bfa5, #009688);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem; /* Smaller font */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 150, 136, 0.3);
+}
+
+.login-btn:hover {
+  background: linear-gradient(to right, #21e3cc, #1bbfa2);
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 121, 107, 0.35);
+}
+
+
+.signup-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.signup-btn {
+  margin-top: 0.8rem;
+  padding: 10px 22px;
+  background: none;
+  border: 2px solid #009688;
+  color: #009688;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.signup-btn:hover {
+  background-color: #009688;
+  color: white;
+  transform: scale(1.05);
+  border-color: #00796b;
+}
