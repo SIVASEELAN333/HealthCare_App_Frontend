@@ -34,22 +34,35 @@ const DoctorList = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch doctors and annotate trending based on rankMap
-    axios.get('http://localhost:8081/api/doctors')
-      .then(res => {
-        const enriched = res.data.map(doc => {
-          const rank = rankMap[doc.licenseNumber];
-          return {
-            ...doc,
-            isTrending: typeof rank === 'number',
-            rank: rank || null,
-          };
-        });
-        setDoctors(enriched);
-        setFilteredDoctors(enriched);
-      })
-      .catch(err => console.error('Doctors fetch error', err));
-  }, [rankMap]);
+  // Fetch doctors and annotate trending based on rankMap
+  axios.get('http://localhost:8081/api/doctors')
+    .then(res => {
+      const allDoctors = res.data.map(doc => {
+        const rank = rankMap[doc.licenseNumber];
+        return {
+          ...doc,
+          isTrending: typeof rank === 'number',
+          rank: rank || null,
+        };
+      });
+
+      // Sort: Top 10 ranked first (by rank ascending), then others alphabetically
+      const topDoctors = allDoctors
+        .filter(doc => doc.isTrending)
+        .sort((a, b) => a.rank - b.rank);
+
+      const otherDoctors = allDoctors
+        .filter(doc => !doc.isTrending)
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      const orderedDoctors = [...topDoctors, ...otherDoctors];
+
+      setDoctors(orderedDoctors);
+      setFilteredDoctors(orderedDoctors);
+    })
+    .catch(err => console.error('Doctors fetch error', err));
+}, [rankMap]);
+
 
   useEffect(() => {
   const stored = JSON.parse(localStorage.getItem('doctorMessages') || '{}');
